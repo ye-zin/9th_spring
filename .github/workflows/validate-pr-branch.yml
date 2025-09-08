@@ -1,0 +1,30 @@
+name: Validate PR target branch
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate-branch:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+      contents: read
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; elif [ -f package.json ]; then npm install; fi
+
+      - name: Validate PR target branch
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          PR_VALIDATION_CONFIG: ${{ vars.PR_VALIDATION_CONFIG }}
+        run: node .github/scripts/validate-pr-branch.js

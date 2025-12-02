@@ -1,5 +1,5 @@
 # RestContollerAdvice
-  ## **RestControllerAdvice란?**
+## **RestControllerAdvice란?**
   `@RestControllerAdvice`는 **Spring에서 전역적으로 예외 처리, 바인딩 오류 처리, 공통 로직 처리 등을 담당하는 어노테이션**.
 
   쉽게 말해, **컨트롤러에서 발생하는 예외들을 한 곳에서 처리해주는 전역 핸들러 클래스**를 만들 때 사용함.

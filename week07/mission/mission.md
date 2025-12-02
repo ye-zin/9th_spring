@@ -1,4 +1,5 @@
 # RestControllerAdvice의 장점, 그리고 없을 경우 어떤 점이 불편한지도 조사하여 **미션 기록란**에 기재하기
+   
    ## RestControllerAdvice가 해주는 역할
    **@RestControllerAdvice**는 모든 REST 컨트롤러에서 발생하는 예외를 한 곳에서 받아서, 공통 형식의 에러 응답 + 로깅 + 후처리를 하는 전역 예외 처리기.
    
